@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jimmy Chen Consulting | Analytics & Operations Strategy</title>
-  <meta name="description" content="Executive-level analytics and operations consulting focused on data-driven strategy, supply chain optimization, and complex decision support." />
+  <meta name="description" content="Decision-focused consulting in analytics, operations, and supply chain strategy. Practical models, dashboards, and executive-ready recommendations." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
 
     .hero p {
       color: var(--muted);
-      max-width: 760px;
+      max-width: 860px;
       margin: 0 auto 36px;
       font-size: 18px;
     }
@@ -102,6 +102,14 @@
       text-align: center;
     }
 
+    .section-subtitle {
+      max-width: 900px;
+      margin: -22px auto 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -116,13 +124,72 @@
     }
 
     .card h3 { margin-top: 0; }
-    .card p { color: var(--muted); }
+    .card p { color: var(--muted); margin-bottom: 0; }
+
+    .pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: rgba(229,231,235,0.9);
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.35);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li { margin: 8px 0; }
 
     .about {
       max-width: 880px;
       margin: 0 auto;
       color: var(--muted);
       font-size: 17px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 26px 0;
+      opacity: 0.8;
+    }
+
+    .certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: rgba(229,231,235,0.92);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+    }
+
+    .cert-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.9);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
     }
 
     footer {
@@ -136,6 +203,28 @@
     @media (max-width: 600px) {
       .nav-links { display: none; }
     }
+	
+		/* Headshot */
+	.headshot {
+	  width: 140px;
+	  height: 140px;
+	  border-radius: 50%;
+	  object-fit: cover;
+	  border: 2px solid rgba(255,255,255,0.15);
+	  margin: 28px auto 12px;
+	  display: block;
+	}
+
+	.photo-credit {
+	  text-align: center;
+	  font-size: 12px;
+	  color: var(--muted);
+	  margin-bottom: 32px;
+	}
+
+	
+	
+	
   </style>
 </head>
 <body>
@@ -145,6 +234,8 @@
     <div class="logo">Jimmy Chen Consulting</div>
     <div class="nav-links">
       <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#credentials">Credentials</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -152,33 +243,178 @@
 </header>
 
 <main>
-  <section class="hero container">
-    <h1>Analytics-driven strategy for complex operational decisions</h1>
-    <p>
-      Executive-level advisory in business analytics, operations, and supply chain strategy.
-      Combining rigorous modeling with practical implementation to support high-stakes decisions.
-    </p>
-    <a href="#contact" class="btn-primary">Request a consultation</a>
-  </section>
+	<section class="hero container">
+	  <h1>Decision-focused analytics with technical depth and business judgment</h1>
+	  <p>
+		Advisory services in business analytics, operations, and supply chain strategy.
+		I help leadership teams turn messy data into clear insights, practical models, and decisions that stand up in the real world.
+	  </p>
+
+	  <img
+		src="images/jimmy-chen-headshot.jpg"
+		alt="Jimmy Chen, Analytics and Operations Strategy Consultant"
+		class="headshot"
+	  />
+	  <div class="photo-credit">Photo by Emily Paine</div>
+
+	  <a href="#contact" class="btn-primary">Request a consultation</a>
+	</section>
+
 
   <section id="services" class="container">
     <h2 class="section-title">Services</h2>
+    <p class="section-subtitle">
+      Work is tailored to your context, constraints, and decision timeline.
+      Deliverables prioritize clarity and usability: models, analyses, and dashboards that teams can actually use.
+    </p>
+
     <div class="grid">
       <div class="card">
-        <h3>Executive Analytics & Decision Support</h3>
-        <p>Forecasting, scenario analysis, simulation modeling, KPI design, and dashboard systems to support strategic and operational leadership decisions.</p>
+        <div class="pill">Supply Chain & Operations Strategy</div>
+        <h3>Inventory, fulfillment, and operations strategy</h3>
+        <p>
+          Operational analysis and decision support for cost, service, and resilience tradeoffs.
+        </p>
+        <ul class="list">
+          <li>Inventory optimization and shortage management</li>
+          <li>Fulfillment lead time, capacity planning, and demand chasing decisions</li>
+          <li>Procurement strategy and supplier performance analysis</li>
+          <li>Operational diagnostics and implementation roadmaps</li>
+        </ul>
       </div>
+
       <div class="card">
-        <h3>Operations & Supply Chain Strategy</h3>
-        <p>Inventory planning, service-level design, capacity modeling, procurement strategy, and process optimization under uncertainty.</p>
+        <div class="pill">Marketing Analytics</div>
+        <h3>Marketing strategy, social media analytics, and customer insight</h3>
+        <p>
+          Data-driven marketing analysis that connects customer behavior to actionable strategy.
+        </p>
+        <ul class="list">
+          <li>Marketing performance analysis and campaign learning</li>
+          <li>Social media analytics, content strategy, and audience growth insights</li>
+          <li>Segmentation-style analysis using available customer and channel data</li>
+          <li>Dashboards and visual summaries for leadership and stakeholders</li>
+        </ul>
       </div>
+
       <div class="card">
-        <h3>Data Strategy & Analytics Architecture</h3>
-        <p>Design of analytics pipelines, modeling frameworks, and long-term data strategy aligned with organizational objectives.</p>
+        <div class="pill">Executive Decision Modeling</div>
+        <h3>Scenario planning, forecasting, and decision modeling</h3>
+        <p>
+          Structured tools that make tradeoffs visible and reduce decision ambiguity.
+        </p>
+        <ul class="list">
+          <li>What-if and sensitivity analysis frameworks</li>
+          <li>Forecasting and practical predictive modeling</li>
+          <li>Simulation and scenario planning for risk and resilience</li>
+        </ul>
       </div>
+
       <div class="card">
-        <h3>Executive & Team Training</h3>
-        <p>Custom workshops in Excel modeling, Tableau, analytics literacy, and data-driven management for technical and non-technical teams.</p>
+        <div class="pill">Dashboards & Visualization</div>
+        <h3>Data visualization and executive dashboards</h3>
+        <p>
+          Clear, decision-oriented visual analytics built to answer concrete questions.
+        </p>
+        <ul class="list">
+          <li>Tableau dashboard design and narrative data visualization</li>
+          <li>Trend analysis, cohort-style views, and operational reporting</li>
+          <li>Data cleaning support and metric definition alignment</li>
+          <li>Stakeholder-ready storytelling for decisions and change management</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="pill">Small Business & Nonprofits</div>
+        <h3>Strategy and analytics for constrained environments</h3>
+        <p>
+          Practical strategy support when resources are limited and focus matters.
+        </p>
+        <ul class="list">
+          <li>Strategic diagnostics and prioritization</li>
+          <li>Resource allocation decisions supported by analysis</li>
+          <li>Program evaluation and impact-oriented reporting</li>
+          <li>Board-facing analysis and decision support</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="pill">Enablement & Training</div>
+        <h3>Analytics training for leaders and teams</h3>
+        <p>
+          Capability building focused on practical workflows, not theory for its own sake.
+        </p>
+        <ul class="list">
+          <li>Excel-based modeling and decision analysis workshops</li>
+          <li>Tableau training for analysis and executive communication</li>
+          <li>Hands-on templates tailored to your data and use cases</li>
+          <li>Coaching on how to ask better questions of data</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="container">
+    <h2 class="section-title">Selected Consulting Experience</h2>
+    <p class="section-subtitle">
+      Examples of past work supporting leaders on strategy, analytics, and execution.
+      Details are shared at a high level to respect client confidentiality.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="pill">Food and Consumer Packaged Goods</div>
+        <h3>Food CPG company</h3>
+        <p>Focused on marketing analysis and social media strategy using data-driven insights and clear visualization.</p>
+        <ul class="list">
+          <li>Marketing analysis to identify what drives engagement and conversion</li>
+          <li>Social media content and channel strategy informed by performance data</li>
+          <li>Data analysis and visualization to support leadership decisions</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="pill">Retail</div>
+        <h3>Regional retail chain store</h3>
+        <p>Focused on inventory optimization, sales analysis, and marketing strategy tied to measurable operational outcomes.</p>
+        <ul class="list">
+          <li>Inventory optimization and replenishment improvement analysis</li>
+          <li>Sales data analysis to identify drivers, seasonality, and product opportunities</li>
+          <li>Marketing strategy support grounded in data and operational constraints</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="pill">Nonprofit</div>
+        <h3>Nonprofit organizations</h3>
+        <p>Broad analytics and strategy support, especially in university and mission-driven contexts.</p>
+        <ul class="list">
+          <li>University advancement: fundraising and donor data analysis</li>
+          <li>Registrar office analysis: operational data to improve planning and services</li>
+          <li>Student campus resources analysis: needs, utilization, and service access insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials" class="container">
+    <h2 class="section-title">Credentials</h2>
+    <p class="section-subtitle">
+      Professional certifications that reflect technical depth across analytics and supply chain.
+    </p>
+
+    <div class="card">
+      <div class="pill">Certifications</div>
+      <h3>Verified technical credentials</h3>
+      <p>
+        These certifications support a practice grounded in rigorous analytics and real-world execution.
+      </p>
+      <div class="certs" aria-label="Professional certifications">
+        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>Tableau Desktop Foundations</span>
+        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>Certified Analytics Professional (INFORMS)</span>
+        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>CSCP (ASCM)</span>
+        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>CPIM (ASCM)</span>
+        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>CPSM (ISM)</span>
       </div>
     </div>
   </section>
@@ -188,22 +424,17 @@
     <div class="about">
       <p>
         Jimmy Chen Consulting provides independent advisory services at the intersection of analytics, operations management, and executive decision making.
-        The firm focuses on problems where data is imperfect, uncertainty is high, and decisions have material financial or organizational consequences.
+        The work focuses on problems where data is imperfect, uncertainty is high, and decisions carry real consequences.
       </p>
 
       <p>
-        The practice is led by Chun‑Miin (Jimmy) Chen, Ph.D., Associate Professor of Analytics & Operations Management at Bucknell University.
-        He holds a Ph.D. in Supply Chain and Information Systems from Penn State University and an MBA in Finance and Supply Chain Management.
+        The practice is led by Chun-Miin (Jimmy) Chen, Ph.D., Associate Professor of Analytics and Operations Management at Bucknell University.
+        He combines technical modeling with practical business judgment, supporting leaders who need clarity, not buzzwords.
       </p>
 
       <p>
-        Dr. Chen has published extensively in operations management, logistics, healthcare analytics, and applied simulation, and his work has been featured in major media outlets including The Philadelphia Inquirer, U.S. News & World Report, WITF, and regional business press.
-        He has advised organizations across manufacturing, retail, healthcare, and public-sector contexts on data-driven strategy, service-level design, and operational risk.
-      </p>
-
-      <p>
-        Engagements range from short diagnostic studies to longer-term strategic advisory and training initiatives.
-        The guiding principles are rigor, transparency, and solutions that can be implemented in real organizations rather than theoretical abstraction.
+        Engagements typically blend analysis, decision modeling, and communication support so teams can act with confidence.
+        The guiding principles are rigor, transparency, and solutions that fit how real organizations operate.
       </p>
     </div>
   </section>
@@ -213,7 +444,7 @@
     <div class="grid">
       <div class="card">
         <h3>Start a conversation</h3>
-        <p>Email is the simplest way to begin. Please briefly describe your organization and objectives.</p>
+        <p>Email is the simplest way to begin. Please describe your organization, your decision context, and what success looks like.</p>
         <p><strong>Email:</strong> jimmy@jimmychenconsulting.com</p>
       </div>
     </div>
