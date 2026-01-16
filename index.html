@@ -1,74 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jimmy Chen Consulting</title>
-  <meta name="description" content="Analytics and operations consulting. Data-driven decision support, supply chain, and practical business analytics." />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Jimmy Chen Consulting | Analytics & Operations Strategy</title>
+  <meta name="description" content="Analytics and operations consulting focused on data-driven strategy, supply chain optimization, and executive decision support." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #3b82f6;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(2,6,23,0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a {
+      margin-left: 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      font-size: 18px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .card h3 { margin-top: 0; }
+    .card p { color: var(--muted); }
+
+    .about {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <header class="container">
-    <nav class="nav">
-      <div class="brand">Jimmy Chen Consulting</div>
-      <div class="links">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
 
-    <div class="hero">
-      <h1>Practical analytics and operations consulting</h1>
-      <p>
-        Helping organizations make better decisions with clear models, clean data, and actionable insights.
-      </p>
-      <div class="cta">
-        <a class="button" href="#contact">Contact</a>
-        <a class="button secondary" href="#services">See services</a>
+<header>
+  <div class="container nav">
+    <div class="logo">Jimmy Chen Consulting</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <h1>Analytics‑driven strategy for complex operational decisions</h1>
+    <p>
+      I help organizations translate data into practical strategy across operations, supply chains, and executive decision making.
+    </p>
+    <a href="#contact" class="btn-primary">Request a consultation</a>
+  </section>
+
+  <section id="services" class="container">
+    <h2 class="section-title">Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Business Analytics</h3>
+        <p>Dashboard design, KPI frameworks, forecasting models, and decision support systems for leadership teams.</p>
+      </div>
+      <div class="card">
+        <h3>Operations & Supply Chain</h3>
+        <p>Inventory planning, capacity modeling, service level optimization, and process redesign.</p>
+      </div>
+      <div class="card">
+        <h3>Data Strategy</h3>
+        <p>Data pipelines, modeling architecture, and analytics roadmaps aligned with business goals.</p>
+      </div>
+      <div class="card">
+        <h3>Executive Training</h3>
+        <p>Custom workshops in Excel modeling, Tableau, analytics literacy, and data‑driven management.</p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
-    <section id="services" class="card">
-      <h2>Services</h2>
-      <ul class="bullets">
-        <li><strong>Business analytics:</strong> dashboards, metrics, reporting, and decision support</li>
-        <li><strong>Operations and supply chain:</strong> inventory, forecasting, process improvement, and optimization</li>
-        <li><strong>Data projects:</strong> data cleaning, modeling, and stakeholder-ready deliverables</li>
-        <li><strong>Workshops:</strong> Excel modeling, Tableau, and analytics training</li>
-      </ul>
-    </section>
+  <section id="about" class="container">
+    <h2 class="section-title">About</h2>
+    <p class="about">
+      Jimmy Chen Consulting provides independent advisory services in analytics and operations management. Engagements range from short diagnostic studies to longer‑term strategic advisory and training initiatives. The focus is always on rigor, clarity, and practical implementation rather than abstract theory.
+    </p>
+  </section>
 
-    <section id="about" class="card">
-      <h2>About</h2>
-      <p>
-        Jimmy Chen Consulting provides analytics and operations consulting focused on clarity, rigor, and real implementation.
-        Engagements can range from short diagnostic work to longer advisory and training support.
-      </p>
-    </section>
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Start a conversation</h3>
+        <p>Email is the simplest way to begin. Please briefly describe your organization and objectives.</p>
+        <p><strong>Email:</strong> yourname@jimmychenconsulting.com</p>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>
-        Email is the simplest way to start. Send a brief note describing your goals and timeline.
-      </p>
-      <p>
-        <a class="button" href="mailto:yourname@jimmychenconsulting.com">Email me</a>
-      </p>
-      <p class="note">
-        Replace the email address above with your real business email when ready.
-      </p>
-    </section>
-  </main>
+<footer>
+  <div class="container">
+    © <span id="year"></span> Jimmy Chen Consulting. All rights reserved.
+  </div>
+</footer>
 
-  <footer class="container footer">
-    <div>© <span id="year"></span> Jimmy Chen Consulting. All rights reserved.</div>
-  </footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
