@@ -3,33 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jimmy Chen Consulting | Analytics & Operations Strategy</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <meta name="description" content="Decision-focused consulting in analytics, operations, and supply chain strategy. Practical models, dashboards, and executive-ready recommendations." />
+  <title>Jimmy Chen Consulting | Decision-Focused Visual Analytics</title>
+  <meta name="description" content="Decision-focused consulting in visual analytics, operations, and supply chain strategy. Practical analysis, clear insight, and judgment under uncertainty." />
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-	:root {
-	  --bg: #ffffff;
-	  --card: #f8fafc;
-	  --accent: #2563eb;
-	  --text: #0f172a;
-	  --muted: #475569;
-	  --border: #e5e7eb;
-	}
-
+    :root {
+      --bg: #ffffff;
+      --card: #f8fafc;
+      --accent: #2563eb;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e5e7eb;
+    }
 
     * { box-sizing: border-box; }
-	body {
-	  margin: 0;
-	  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-	  background: #ffffff;
-	  color: var(--text);
-	  line-height: 1.6;
-	}
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
     a { color: inherit; text-decoration: none; }
 
@@ -39,15 +37,14 @@
       padding: 0 24px;
     }
 
-	header {
-	  position: sticky;
-	  top: 0;
-	  background: rgba(255,255,255,0.9);
-	  backdrop-filter: blur(10px);
-	  border-bottom: 1px solid var(--border);
-	  z-index: 10;
-	}
-
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
 
     .nav {
       display: flex;
@@ -56,24 +53,11 @@
       height: 84px;
     }
 
-	.logo {
-	  display: flex;
-	  align-items: center;
-	}
-
-
-	.nav-links a {
-	  margin-left: 24px;
-	  color: #334155;
-	  font-size: 15px;
-	}
-
-	.nav-links i {
-	  font-size: 18px;
-	  vertical-align: middle;
-	}
-
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a {
+      margin-left: 24px;
+      color: #334155;
+      font-size: 15px;
+    }
 
     .hero {
       padding: 100px 0 80px;
@@ -81,15 +65,15 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      margin-bottom: 20px;
-      letter-spacing: -0.5px;
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 18px;
+      letter-spacing: -0.4px;
     }
 
     .hero p {
       color: var(--muted);
       max-width: 860px;
-      margin: 0 auto 36px;
+      margin: 0 auto 34px;
       font-size: 18px;
     }
 
@@ -99,21 +83,20 @@
       border-radius: 8px;
       font-weight: 600;
       display: inline-block;
+      color: #ffffff;
     }
 
-    section {
-      padding: 80px 0;
-    }
+    section { padding: 80px 0; }
 
     .section-title {
       font-size: 32px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       text-align: center;
     }
 
     .section-subtitle {
       max-width: 900px;
-      margin: -22px auto 40px;
+      margin: -20px auto 40px;
       text-align: center;
       color: var(--muted);
       font-size: 16px;
@@ -125,34 +108,33 @@
       gap: 24px;
     }
 
-	.card {
-	  background: #ffffff;
-	  border: 1px solid var(--border);
-	  border-radius: 14px;
-	  padding: 28px;
-	  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-	}
-
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
 
     .card h3 { margin-top: 0; }
-    .card p { color: var(--muted); margin-bottom: 0; }
 
-	.pill {
-	  display: inline-block;
-	  font-size: 12px;
-	  font-weight: 600;
-	  letter-spacing: 0.3px;
-	  color: #1e3a8a;              /* dark blue text */
-	  background: #e0ecff;         /* soft blue background */
-	  border: 1px solid #93c5fd;   /* subtle border */
-	  padding: 6px 10px;
-	  border-radius: 999px;
-	  margin-bottom: 12px;
-	}
+    .card p { color: var(--muted); }
 
+    .pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #1e3a8a;
+      background: #e0ecff;
+      border: 1px solid #93c5fd;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
 
     .list {
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       padding-left: 18px;
       color: var(--muted);
     }
@@ -166,43 +148,15 @@
       font-size: 17px;
     }
 
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 26px 0;
-      opacity: 0.8;
+    details {
+      margin-top: 16px;
     }
 
-    .certs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 14px;
-    }
-
-	.cert {
-	  display: inline-flex;
-	  align-items: center;
-	  gap: 8px;
-	  padding: 10px 12px;
-	  border-radius: 12px;
-	  background: #f1f5f9;          /* light gray-blue */
-	  border: 1px solid #e2e8f0;    /* subtle border */
-	  color: #0f172a;               /* dark readable text */
-	  font-size: 13px;
-	  font-weight: 600;
-	  letter-spacing: 0.1px;
-	  white-space: nowrap;
-	}
-
-
-    .cert-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(59,130,246,0.9);
-      box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
     }
 
     footer {
@@ -212,280 +166,308 @@
       color: var(--muted);
       font-size: 14px;
     }
+  
+    .logo { display: flex; align-items: center; }
+    .site-logo { height: 64px; width: auto; }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
+    .certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 14px;
     }
-	
-		/* Headshot */
-	.headshot {
-	  width: 140px;
-	  height: 140px;
-	  border-radius: 50%;
-	  object-fit: cover;
-	  border: 2px solid rgba(255,255,255,0.15);
-	  margin: 28px auto 12px;
-	  display: block;
-	}
 
-	.photo-credit {
-	  text-align: center;
-	  font-size: 12px;
-	  color: var(--muted);
-	  margin-bottom: 32px;
-	}
+    .cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+    }
 
-	.site-logo {
-	  height: 64px;
-	  width: auto;
-	}
+    .cert-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.9);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    }
 
-
-
-	
-	
   </style>
 </head>
+
 <body>
 
 <header>
-	 <div class="container nav">
-		<div class="logo">
-	<img src="images/JCC_logo.png" class="site-logo" alt="Jimmy Chen Consulting logo">
-	</div>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#experience">Experience</a>
-      <a href="#credentials">Credentials</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-	  <a href="https://www.linkedin.com/in/chun-miin-jimmy-chen-91302421/" target="_blank" rel="noopener" aria-label="LinkedIn">
-  <i class="fa-brands fa-linkedin"></i>
-</a>
+  <div class="container nav">
+    <div class="logo"><img src="images/JCC_logo.png" class="site-logo" alt="Jimmy Chen Consulting logo"></div>
+<div class="nav-links">
+  <a href="#services">Services</a>
+  <a href="#experience">Experience</a>
+  <a href="#credentials">Credentials</a>
+  <a href="#credibility">Credibility</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
 
-    </div>
+  <a href="https://www.linkedin.com/in/chun-miin-jimmy-chen-91302421/"
+     target="_blank"
+     rel="noopener"
+     aria-label="LinkedIn profile"
+     style="margin-left: 20px;">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+</div>
+
   </div>
 </header>
 
 <main>
-	<section class="hero container">
-	  <h1>Decision-focused analytics with technical depth and business judgment</h1>
-	  <p>
-		Advisory services in business analytics, operations, and supply chain strategy.
-		I help leadership teams turn messy data into clear insights, practical models, and decisions that stand up in the real world.
-	  </p>
 
-	  <img
-		src="images/jimmy-chen-headshot.jpg"
-		alt="Jimmy Chen, Analytics and Operations Strategy Consultant"
-		class="headshot"
-	  />
-	  <div class="photo-credit">Photo by Emily Paine</div>
+<section class="hero container">
+  <h1>Decision focused visual analytics for real world problems</h1>
+  <p>
+    I help organizations use data visualization and quantitative analysis to uncover hidden patterns,
+    prioritize limited resources, and make clearer strategic decisions across operations, inventory,
+    marketing, and supply chains.
+  </p>
+  <a href="#contact" class="btn-primary">Request a consultation</a>
+</section>
 
-	  <a href="#contact" class="btn-primary">Request a consultation</a>
-	</section>
+<section id="services" class="container">
+  <h2 class="section-title">Services</h2>
+  <p class="section-subtitle">
+    Work is tailored to your decision context, data constraints, and timeline.
+    The emphasis is on usable insight rather than analytic complexity for its own sake.
+  </p>
 
-
-  <section id="services" class="container">
-    <h2 class="section-title">Services</h2>
-    <p class="section-subtitle">
-      Work is tailored to your context, constraints, and decision timeline.
-      Deliverables prioritize clarity and usability: models, analyses, and dashboards that teams can actually use.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <div class="pill">Supply Chain & Operations Strategy</div>
-        <h3>Inventory, fulfillment, and operations strategy</h3>
-        <p>
-          Operational analysis and decision support for cost, service, and resilience tradeoffs.
-        </p>
-        <ul class="list">
-          <li>Inventory optimization and shortage management</li>
-          <li>Fulfillment lead time, capacity planning, and demand chasing decisions</li>
-          <li>Procurement strategy and supplier performance analysis</li>
-          <li>Operational diagnostics and implementation roadmaps</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Marketing Analytics</div>
-        <h3>Marketing strategy, social media analytics, and customer insight</h3>
-        <p>
-          Data-driven marketing analysis that connects customer behavior to actionable strategy.
-        </p>
-        <ul class="list">
-          <li>Marketing performance analysis and campaign learning</li>
-          <li>Social media analytics, content strategy, and audience growth insights</li>
-          <li>Segmentation-style analysis using available customer and channel data</li>
-          <li>Dashboards and visual summaries for leadership and stakeholders</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Executive Decision Modeling</div>
-        <h3>Scenario planning, forecasting, and decision modeling</h3>
-        <p>
-          Structured tools that make tradeoffs visible and reduce decision ambiguity.
-        </p>
-        <ul class="list">
-          <li>What-if and sensitivity analysis frameworks</li>
-          <li>Forecasting and practical predictive modeling</li>
-          <li>Simulation and scenario planning for risk and resilience</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Dashboards & Visualization</div>
-        <h3>Data visualization and executive dashboards</h3>
-        <p>
-          Clear, decision-oriented visual analytics built to answer concrete questions.
-        </p>
-        <ul class="list">
-          <li>Tableau dashboard design and narrative data visualization</li>
-          <li>Trend analysis, cohort-style views, and operational reporting</li>
-          <li>Data cleaning support and metric definition alignment</li>
-          <li>Stakeholder-ready storytelling for decisions and change management</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Small Business & Nonprofits</div>
-        <h3>Strategy and analytics for constrained environments</h3>
-        <p>
-          Practical strategy support when resources are limited and focus matters.
-        </p>
-        <ul class="list">
-          <li>Strategic diagnostics and prioritization</li>
-          <li>Resource allocation decisions supported by analysis</li>
-          <li>Program evaluation and impact-oriented reporting</li>
-          <li>Board-facing analysis and decision support</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Enablement & Training</div>
-        <h3>Analytics training for leaders and teams</h3>
-        <p>
-          Capability building focused on practical workflows, not theory for its own sake.
-        </p>
-        <ul class="list">
-          <li>Excel-based modeling and decision analysis workshops</li>
-          <li>Tableau training for analysis and executive communication</li>
-          <li>Hands-on templates tailored to your data and use cases</li>
-          <li>Coaching on how to ask better questions of data</li>
-        </ul>
-      </div>
+  <div class="grid">
+    <div class="card">
+      <div class="pill">Visual Analytics</div>
+      <h3>Data visualization and insight development</h3>
+      <p>
+        Visual analysis that surfaces patterns and tradeoffs leaders can interpret and act on.
+      </p>
+      <ul class="list">
+        <li>Exploratory visual analysis for messy or incomplete data</li>
+        <li>Executive dashboards focused on decision questions</li>
+        <li>Inventory, sales, and marketing performance views</li>
+      </ul>
     </div>
-  </section>
-
-  <section id="experience" class="container">
-    <h2 class="section-title">Selected Consulting Experience</h2>
-    <p class="section-subtitle">
-      Examples of past work supporting leaders on strategy, analytics, and execution.
-      Details are shared at a high level to respect client confidentiality.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <div class="pill">Food</div>
-        <h3>Consumer packaged goods company</h3>
-        <p>Focused on marketing analysis and social media strategy using data-driven insights and clear visualization.</p>
-        <ul class="list">
-          <li>Marketing analysis to identify what drives engagement and conversion</li>
-          <li>Social media content and channel strategy informed by performance data</li>
-          <li>Data analysis and visualization to support leadership decisions</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Retail</div>
-        <h3>Retail chain store</h3>
-        <p>Focused on inventory optimization, sales analysis, and marketing strategy tied to measurable operational outcomes.</p>
-        <ul class="list">
-          <li>Inventory optimization and replenishment improvement analysis</li>
-          <li>Sales data analysis to identify drivers, seasonality, and product opportunities</li>
-          <li>Marketing strategy support grounded in data and operational constraints</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="pill">Nonprofit</div>
-        <h3>Nonprofit organizations</h3>
-        <p>Broad analytics and strategy support, especially in university and mission-driven contexts.</p>
-        <ul class="list">
-          <li>University advancement: fundraising and donor data analysis</li>
-          <li>Registrar office analysis: operational data to improve planning and services</li>
-          <li>Student campus resources analysis: needs, utilization, and service access insights</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="credentials" class="container">
-    <h2 class="section-title">Credentials</h2>
-    <p class="section-subtitle">
-      Professional certifications that reflect technical depth across analytics and supply chain.
-    </p>
 
     <div class="card">
-      <div class="pill">Certifications</div>
-      <h3>Verified technical credentials</h3>
+      <div class="pill">Operations and Supply Chain</div>
+      <h3>Operational and inventory decision support</h3>
       <p>
-        These certifications support a practice grounded in rigorous analytics and real-world execution.
+        Analysis that helps organizations balance cost, service, and risk.
       </p>
-      <div class="certs" aria-label="Professional certifications">
-        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>Tableau Desktop Foundations</span>
-        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>Certified Analytics Professional (INFORMS)</span>
-        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>CSCP (ASCM)</span>
-        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>CPIM (ASCM)</span>
-        <span class="cert"><span class="cert-dot" aria-hidden="true"></span>CPSM (ISM)</span>
-      </div>
+      <ul class="list">
+        <li>Inventory planning and shortage management</li>
+        <li>Demand patterns, capacity tradeoffs, and prioritization</li>
+        <li>Operational diagnostics tied to practical constraints</li>
+      </ul>
     </div>
-  </section>
 
-  <section id="about" class="container">
-    <h2 class="section-title">About</h2>
-    <div class="about">
+    <div class="card">
+      <div class="pill">Marketing Analytics</div>
+      <h3>Customer and campaign analysis</h3>
       <p>
-        Jimmy Chen Consulting provides independent advisory services at the intersection of analytics, operations management, and executive decision making.
-        The work focuses on problems where data is imperfect, uncertainty is high, and decisions carry real consequences.
+        Insight that helps teams allocate marketing effort more effectively.
       </p>
+      <ul class="list">
+        <li>Customer clustering and segmentation style analysis</li>
+        <li>Campaign performance and learning analysis</li>
+        <li>Visualization to support targeting decisions</li>
+      </ul>
+    </div>
 
+    <div class="card">
+      <div class="pill">Advisory</div>
+      <h3>Ongoing analytic advisory</h3>
       <p>
-        The practice is led by Chun-Miin (Jimmy) Chen, Ph.D., Associate Professor of Analytics and Operations Management at Bucknell University.
-        He combines technical modeling with practical business judgment, supporting leaders who need clarity, not buzzwords.
+        Monthly reporting and interpretation support for evolving decisions.
       </p>
+      <ul class="list">
+        <li>Regular review of new data and emerging patterns</li>
+        <li>Interpretation support for leadership teams</li>
+        <li>Decision framing under uncertainty</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
+<section id="experience" class="container">
+  <h2 class="section-title">Selected Experience</h2>
+  <p class="section-subtitle">
+    Examples of applied work translating data into decisions.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="pill">Nonprofit</div>
+      <h3>Operational streamlining</h3>
       <p>
-        Engagements typically blend analysis, decision modeling, and communication support so teams can act with confidence.
-        The guiding principles are rigor, transparency, and solutions that fit how real organizations operate.
+        Visualized funding requests and workflows to help leadership identify bottlenecks
+        and improve prioritization.
       </p>
     </div>
-  </section>
 
-  <section id="contact" class="container">
-    <h2 class="section-title">Contact</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Start a conversation</h3>
-        <p>Email is the simplest way to begin. Please describe your organization, your decision context, and what success looks like.</p>
-        <p><strong>Email:</strong> jimmy@jimmychenconsulting.com</p>
-      </div>
+    <div class="card">
+      <div class="pill">Retail</div>
+      <h3>Inventory and marketing insight</h3>
+      <p>
+        Used sales, inventory, and marketing data to inform inventory planning
+        and campaign strategy.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
+
+
+<section id="credentials" class="container">
+  <h2 class="section-title">Professional Certificates</h2>
+  <p class="section-subtitle">
+    Certifications that reflect technical depth across analytics, supply chain, and professional supply management.
+  </p>
+
+  <div class="card">
+    <div class="pill">Certifications</div>
+    <h3>Verified credentials</h3>
+    <p>
+      These certifications support a practice grounded in rigorous analysis and real world execution.
+    </p>
+<div class="certs" aria-label="Professional certifications">
+  <span class="cert">
+    <span class="cert-dot" aria-hidden="true"></span>
+    Tableau Desktop Foundations Certification — Salesforce (Tableau)
+  </span>
+
+  <span class="cert">
+    <span class="cert-dot" aria-hidden="true"></span>
+    Certified Analytics Professional (CAP) — INFORMS
+  </span>
+
+  <span class="cert">
+    <span class="cert-dot" aria-hidden="true"></span>
+    Certified Supply Chain Professional (CSCP) — Association for Supply Chain Management (ASCM)
+  </span>
+
+  <span class="cert">
+    <span class="cert-dot" aria-hidden="true"></span>
+    Certified in Production and Inventory Management (CPIM) — Association for Supply Chain Management (ASCM)
+  </span>
+
+  <span class="cert">
+    <span class="cert-dot" aria-hidden="true"></span>
+    Certified Professional in Supply Management (CPSM) — Institute for Supply Management (ISM)
+  </span>
+</div>
+
+  </div>
+</section>
+
+<section id="credibility" class="container">
+  <h2 class="section-title">Credibility</h2>
+  <p class="section-subtitle">
+    Academic rigor, industry grounding, and public engagement.
+  </p>
+
+  <div class="card">
+    <p>
+      I am an Associate Professor of Analytics and Operations Management at Bucknell University.
+      My background combines industry experience in procurement, manufacturing, and finance
+      with rigorous training in quantitative analysis and investigation methods.
+    </p>
+
+    <p>
+      I am the recipient of Bucknell University's Lindback Award for Distinguished Teaching,
+      reflecting a sustained commitment to explaining complex ideas clearly using real data
+      and applied problems.
+    </p>
+
+    <details>
+      <summary>Peer reviewed publications (grouped by theme)</summary>
+      <p><strong>Supply Chain and Operations</strong></p>
+      <ul class="list">
+        <li>Inventory allocation, fulfillment lead time, capacity decisions</li>
+        <li>Shipment sizing and logistics modeling</li>
+      </ul>
+      <p><strong>Healthcare and Public Policy</strong></p>
+      <ul class="list">
+        <li>Telehealth utilization and access disparities</li>
+        <li>Vaccine distribution and wait time management</li>
+      </ul>
+      <p><strong>Ethics and Governance</strong></p>
+      <ul class="list">
+        <li>Ethical challenges for same day delivery contractors</li>
+      </ul>
+      <p><strong>Analytics Education</strong></p>
+      <ul class="list">
+        <li>Applied analytics tools and decision focused learning designs</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Press and public commentary</summary>
+      <ul class="list">
+        <li>WITF – Supply chain disruptions and consumer impact</li>
+        <li>The Philadelphia Inquirer – Baby formula shortages</li>
+        <li>Modern Materials Handling – Logistics and materials strategy</li>
+        <li>FOX and regional media – Retail and operations insights</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section id="about" class="container">
+  <h2 class="section-title">About</h2>
+  <div class="about">
+    <p>
+      Jimmy Chen Consulting provides independent advisory services focused on analysis,
+      investigation, and judgment under uncertainty. The goal is not to promise outcomes,
+      but to help organizations make better informed decisions using the data they have.
+    </p>
+
+    <p>
+      This work is especially well suited to small and mid sized organizations that do not
+      have in house analytics teams. Outcomes depend on data quality, context, and execution.
+    </p>
+
+    <p>
+      If clients wish, engagements can later inform teaching or academic projects, with no
+      obligation and no additional burden.
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="container">
+  <h2 class="section-title">Contact</h2>
+  <div class="card">
+    <p>
+      Email is the simplest way to begin. Please briefly describe the decision you are trying
+      to support, the data you have, and your desired timeline.
+    </p>
+    <p><strong>Email:</strong> jimmy@jimmychenconsulting.com</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
   <div class="container">
-    © <span id="year"></span> Jimmy Chen Consulting. All rights reserved.
+    © 2026 Jimmy Chen Consulting. All rights reserved.
   </div>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
