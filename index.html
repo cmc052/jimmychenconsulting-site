@@ -200,6 +200,119 @@
       background: rgba(59,130,246,0.9);
       box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
     }
+	
+	/* Process infographic (vertical timeline style) */
+	.process-wrap { max-width: 920px; margin: 0 auto; }
+
+	.process-list {
+	  display: grid;
+	  gap: 16px;
+	  position: relative;
+	  padding-left: 54px;
+	  margin-top: 28px;
+	}
+
+	.process-list::before {
+	  content: "";
+	  position: absolute;
+	  left: 22px;
+	  top: 8px;
+	  bottom: 8px;
+	  width: 2px;
+	  background: repeating-linear-gradient(
+		to bottom,
+		rgba(59,130,246,0.75) 0 6px,
+		transparent 6px 14px
+	  );
+	  opacity: 0.7;
+	}
+
+	.process-item {
+	  background: rgba(255,255,255,0.03);
+	  border: 1px solid var(--border);
+	  border-radius: 14px;
+	  padding: 18px;
+	  position: relative;
+	}
+
+	.process-step {
+	  position: absolute;
+	  left: -54px;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  width: 44px;
+	  height: 44px;
+	  border-radius: 999px;
+	  background: rgba(59,130,246,0.18);
+	  border: 1px solid rgba(59,130,246,0.45);
+	  display: grid;
+	  place-items: center;
+	  font-weight: 700;
+color: rgba(0,0,0,0.85);
+	}
+
+/* Remove inner frame so each step has only one border */
+.process-row {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.process-item * {
+  box-shadow: none;
+}
+.process-item {
+  padding: 22px;
+}
+
+
+
+
+	.process-icon { width: 28px; height: 28px; margin-top: 2px; color: rgba(59,130,246,0.95); }
+
+	.process-title { margin: 0; font-size: 18px; line-height: 1.35; }
+
+	.process-desc { margin: 6px 0 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+/* Progressive darkening by step number */
+.step-1 .process-step {
+  background: rgba(37,99,235,0.18);
+  border-color: rgba(37,99,235,0.40);
+}
+
+.step-2 .process-step {
+  background: rgba(37,99,235,0.30);
+  border-color: rgba(37,99,235,0.55);
+}
+
+.step-3 .process-step {
+  background: rgba(37,99,235,0.45);
+  border-color: rgba(37,99,235,0.70);
+}
+
+.step-4 .process-step {
+  background: rgba(37,99,235,0.65);
+  border-color: rgba(37,99,235,0.85);
+}
+
+.step-1 .process-icon { opacity: 0.65; }
+.step-2 .process-icon { opacity: 0.75; }
+.step-3 .process-icon { opacity: 0.85; }
+.step-4 .process-icon { opacity: 1; }
+
+
+
+	@media (max-width: 520px) {
+	  .process-list { padding-left: 48px; }
+	  .process-list::before { left: 20px; }
+	  .process-step { left: -48px; width: 40px; height: 40px; }
+	}
+	
+	.process-list::before {
+  display: none;
+}
+
 
   </style>
 </head>
@@ -305,6 +418,106 @@
   </div>
 </section>
 
+
+
+
+<section id="process" class="container">
+  <h2 class="section-title">How I Work</h2>
+  <p class="section-subtitle">
+    A clear, structured process designed to support sound decision making from framing through action.
+  </p>
+
+  <div class="process-wrap">
+    <div class="process-list">
+
+	  <div class="process-item step-1">
+
+        <div class="process-step">1</div>
+        <div class="process-row">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h3 class="process-title">Clarify the decision context</h3>
+            <p class="process-desc">Identify the decision, align on scope, and define what success looks like before analysis begins.</p>
+          </div>
+		  </div>
+        </div>
+
+
+      
+	  <div class="process-item step-2">
+
+        <div class="process-step">2</div>
+        <div class="process-row">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3c4.4 0 8 1.34 8 3s-3.6 3-8 3-8-1.34-8-3 3.6-3 8-3Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="currentColor" stroke-width="2"/>
+            <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div>
+            <h3 class="process-title">Assess data and assumptions</h3>
+            <p class="process-desc">Review available data, assess quality and limitations, and make assumptions explicit.</p>
+          </div>
+		   </div>
+        </div>
+     
+
+     
+	  <div class="process-item step-3">
+
+        <div class="process-step">3</div>
+        <div class="process-row">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 15l3-3 3 2 4-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17 8h3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h3 class="process-title">Analyze and model selectively</h3>
+            <p class="process-desc">Tailor analysis to the decision at hand using visualization, quantitative modeling, scenario analysis, and selective use of AI tools when they add clarity.</p>
+          </div>
+		   </div>
+        </div>
+      
+
+      
+	  <div class="process-item step-4">
+
+        <div class="process-step">4</div>
+        <div class="process-row">
+          <svg class="process-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 3h6a2 2 0 0 1 2 2v1h-2.5a2 2 0 0 0-4 0H8V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M7 6h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/>
+            <path d="m9 14 2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h3 class="process-title">Translate insight into action</h3>
+            <p class="process-desc">Convert findings into decision-ready options with clear tradeoffs and practical implications.</p>
+          </div>
+        </div>
+		 </div>
+      
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <section id="process" class="container">
   <h2 class="section-title">How I Work</h2>
 	<p class="section-subtitle">
@@ -355,7 +568,7 @@
 
   </div>
 </section>
-
+-->
 
 
 <section id="experience" class="container">
