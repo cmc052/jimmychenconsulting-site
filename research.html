@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Engagement Research — Jimmy Chen Consulting</title>
+  <meta name="description" content="Original quantitative analysis of what drives Instagram engagement for a leading yogurt brand in 2025. Post-level data, OLS regression, actionable findings." />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4YQM0SHQY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E4YQM0SHQY');
+  </script>
+
+  <style>
+    /* ── EXACT TOKENS FROM index.html ───────────────────── */
+    :root {
+      --bg:       #ffffff;
+      --card:     #f8fafc;
+      --accent:   #2563eb;
+      --text:     #0f172a;
+      --muted:    #475569;
+      --border:   #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── HEADER (identical to index.html) ───────────────── */
+    header {
+      position: sticky; top: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 84px;
+    }
+    .logo { display: flex; align-items: center; }
+    .site-logo { height: 64px; width: auto; }
+    .nav-links a {
+      margin-left: 24px;
+      color: #334155;
+      font-size: 15px;
+    }
+    .nav-links a.active { color: var(--accent); font-weight: 600; }
+
+    /* ── SHARED LAYOUT ───────────────────────────────────── */
+    section { padding: 80px 0; }
+    .section-title { font-size: 32px; margin-bottom: 36px; text-align: center; }
+    .section-subtitle {
+      max-width: 900px; margin: -20px auto 40px;
+      text-align: center; color: var(--muted); font-size: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+    .card h3 { margin-top: 0; }
+    .card p { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #1e3a8a;
+      background: #e0ecff;
+      border: 1px solid #93c5fd;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .list { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    .list li { margin: 8px 0; }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero { padding: 100px 0 80px; text-align: center; }
+    .hero h1 {
+      font-size: clamp(28px, 4.5vw, 48px);
+      margin-bottom: 18px;
+      letter-spacing: -0.4px;
+    }
+    .hero p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 34px;
+      font-size: 18px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: inline-block;
+      color: #ffffff;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #1d4ed8; }
+
+    /* ── STAT STRIP ──────────────────────────────────────── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 0 auto 0;
+      max-width: 900px;
+    }
+    .stat-card {
+      background: #f0f6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .stat-n {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-l {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── FINDINGS ────────────────────────────────────────── */
+    .finding-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 20px;
+      align-items: start;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .finding-card.visible { opacity: 1; transform: translateY(0); }
+    .finding-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      background: #e0ecff;
+      border: 1px solid #93c5fd;
+      border-radius: 999px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .finding-card h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .finding-card p {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+    .badge-pos {
+      background: #dcfce7; color: #166534;
+      border: 1px solid #86efac;
+    }
+    .badge-neg {
+      background: #fee2e2; color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+    .badge-neu {
+      background: #f1f5f9; color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* ── METHODOLOGY ─────────────────────────────────────── */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .method-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+    .method-icon {
+      width: 40px; height: 40px;
+      background: #e0ecff;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      color: var(--accent);
+    }
+    .method-icon svg {
+      width: 20px; height: 20px;
+      fill: none; stroke: currentColor;
+      stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .method-card h3 {
+      font-size: 15px; font-weight: 600;
+      margin: 0 0 8px; color: var(--text);
+    }
+    .method-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.6; }
+
+    /* ── LEAD CAPTURE ─────────────────────────────────────── */
+    .lead-wrap {
+      background: #f0f6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .lead-copy h3 {
+      font-size: 22px; font-weight: 700;
+      margin: 0 0 12px;
+    }
+    .lead-copy p { font-size: 15px; color: var(--muted); margin: 0 0 20px; line-height: 1.6; }
+    .lead-copy ul { padding-left: 18px; color: var(--muted); }
+    .lead-copy ul li { font-size: 14px; margin: 7px 0; }
+
+    .lead-form {}
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      padding: 10px 13px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+    .form-group input::placeholder { color: #94a3b8; }
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px; font-weight: 600;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.15s;
+    }
+    .form-submit:hover { background: #1d4ed8; }
+    .form-note {
+      font-size: 12px; color: var(--muted);
+      text-align: center; margin-top: 10px;
+      line-height: 1.5;
+    }
+    .form-success {
+      display: none;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      color: #166534;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER (identical to index.html) ───────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .lead-wrap { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
+      .finding-card { grid-template-columns: 1fr; }
+      .finding-num { width: 28px; height: 28px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER — identical structure to index.html -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/JCC_logo.png" class="site-logo" alt="Jimmy Chen Consulting logo">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#credentials">Credentials</a>
+      <a href="index.html#about">About</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/chun-miin-jimmy-chen-91302421/"
+         target="_blank" rel="noopener" aria-label="LinkedIn profile"
+         style="margin-left: 20px;">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="pill">Brand Case Study &mdash; 2025</div>
+    <h1>What actually drives engagement for a leading yogurt brand on Instagram?</h1>
+    <p>
+      A post-level quantitative analysis of 118 organic posts from a leading U.S. yogurt brand,
+      using OLS regression and text-derived content indicators to identify what content
+      characteristics are statistically associated with higher likes and comments.
+    </p>
+    <a href="#report" class="btn-primary">Request the full brand report</a>
+
+    <div style="margin-top: 56px;">
+      <div class="stat-strip">
+        <div class="stat-card">
+          <div class="stat-n">118</div>
+          <div class="stat-l">organic posts analyzed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n">12</div>
+          <div class="stat-l">months of 2025 data</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n">268K</div>
+          <div class="stat-l">brand followers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n">R&#178;&nbsp;0.61</div>
+          <div class="stat-l">likes model fit</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n">9</div>
+          <div class="stat-l">content predictors tested</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FINDINGS -->
+  <section id="findings" style="background: var(--card); padding: 80px 0;">
+    <div class="container">
+      <h2 class="section-title">Key Findings</h2>
+      <p class="section-subtitle">
+        All findings are drawn from a single brand&#8217;s statistically significant regression results.
+        Effect sizes are approximate percentage changes relative to the baseline,
+        back-transformed from the log scale. The brand is not identified in this public summary.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto;">
+
+        <div class="finding-card">
+          <div class="finding-num">01</div>
+          <div>
+            <h3>Collaboration posts are the single largest engagement driver — by a wide margin</h3>
+            <p>Posts featuring an external collaborator — a creator, brand partner, or co-promoter — dramatically
+            outperformed solo brand content on both engagement dimensions. The effect was statistically significant
+            at the 1% level and dwarfed every other content variable in the model.</p>
+            <div class="badge-row">
+              <span class="badge badge-pos">+369% more likes (p &lt; 0.001)</span>
+              <span class="badge badge-pos">+76% more comments (p &lt; 0.05)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-num">02</div>
+          <div>
+            <h3>Seasonal and limited-edition content consistently outperforms evergreen posts</h3>
+            <p>Posts referencing seasonal themes or limited-edition products generated a reliable lift on both
+            likes and comments, independent of whether the post also featured a collaborator or new product
+            announcement. The effect held after controlling for calendar month, ruling out simple timing effects.</p>
+            <div class="badge-row">
+              <span class="badge badge-pos">+51% more likes (p &lt; 0.05)</span>
+              <span class="badge badge-pos">+44% more comments (p &lt; 0.05)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-num">03</div>
+          <div>
+            <h3>Static images outperform video for likes — despite video dominating the posting mix</h3>
+            <p>One of the most counterintuitive findings: static image posts generated substantially more likes
+            than video posts at the 1% significance level, even though video accounted for the majority of
+            content published. Format strategy appears misaligned with format performance for at least one
+            major brand in this category.</p>
+            <div class="badge-row">
+              <span class="badge badge-pos">+354% more likes vs. video (p &lt; 0.001)</span>
+              <span class="badge badge-neu">Effect specific to likes; comments gap not significant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-num">04</div>
+          <div>
+            <h3>A brand's core identity theme may be working against it on Instagram</h3>
+            <p>For one brand in the study, posts centered on the theme most associated with its brand
+            positioning significantly underperformed on both likes and comments. The effect was robust,
+            statistically significant at the 1% level, and held after controlling for all other content
+            variables. This does not mean the brand should abandon its identity — but it does suggest
+            the current execution of that theme on Instagram is not connecting with the audience as intended.</p>
+            <div class="badge-row">
+              <span class="badge badge-neg">&minus;41% likes (p &lt; 0.01)</span>
+              <span class="badge badge-neg">&minus;42% comments (p &lt; 0.01)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-num">05</div>
+          <div>
+            <h3>New product launches generate a significant lift in likes</h3>
+            <p>Posts explicitly announcing a new product were associated with substantially more likes
+            than standard content, significant at the 5% level. The corresponding effect on comments
+            did not reach significance, suggesting that novelty reliably attracts passive appreciation
+            more than it sparks conversation. Launch posts that pair the announcement with a direct
+            question or invitation to respond may be better positioned to lift both dimensions.</p>
+            <div class="badge-row">
+              <span class="badge badge-pos">+86% more likes (p &lt; 0.05)</span>
+              <span class="badge badge-neu">Comments effect directional but not significant</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section id="methodology" class="container">
+    <h2 class="section-title">Methodology</h2>
+    <p class="section-subtitle">
+      This research applies quantitative methods from business analytics to a domain
+      where most analysis stays qualitative.
+    </p>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 16 4-4 4 4 4-4"/></svg>
+        </div>
+        <h3>Post-level data collection</h3>
+        <p>Each post manually observed and coded across 17 variables including content type,
+        visual elements, caption characteristics, and engagement outcomes across a full calendar year.</p>
+      </div>
+
+      <div class="method-card">
+        <div class="method-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h3>Text-derived content indicators</h3>
+        <p>Caption and visual scene text parsed into structured binary indicators, enabling
+        content themes to be tested as quantitative predictors alongside manually coded variables.</p>
+      </div>
+
+      <div class="method-card">
+        <div class="method-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>Month fixed effects</h3>
+        <p>Seasonal variation and audience growth effects absorbed via month dummy variables,
+        isolating content-driven engagement from calendar timing confounds.</p>
+      </div>
+
+      <div class="method-card">
+        <div class="method-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+        </div>
+        <h3>OLS regression, log-transformed outcomes</h3>
+        <p>Standard regression approach for count data with right-skewed distributions.
+        Marginal effects back-transformed into percentage changes for direct interpretability.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 24px; background: var(--card);">
+      <div class="pill">Methodology Note</div>
+      <p style="margin: 0; font-size: 14px; color: var(--muted); line-height: 1.65;">
+        Data collected via direct observation of public Instagram profiles (January through December 2025).
+        All findings are original analysis by Jimmy Chen Consulting. No post content, images, or captions
+        reproduced. Based on independent analysis of publicly available data. Jimmy Chen Consulting is not
+        affiliated with, endorsed by, or sponsored by the brand analyzed herein.
+      </p>
+    </div>
+  </section>
+
+  <!-- LEAD CAPTURE -->
+  <section id="report" style="background: var(--card); padding: 80px 0;">
+    <div class="container">
+      <h2 class="section-title">Get the Full Brand Report</h2>
+      <p class="section-subtitle">
+        The complete analysis covers one brand in full detail: regression results, confidence intervals,
+        residual diagnostics, and prioritized strategic recommendations.
+      </p>
+
+      <div class="lead-wrap">
+        <div class="lead-copy">
+          <div class="pill">What is included</div>
+          <h3>Brand-specific findings, not category averages</h3>
+          <p>
+            The public summary above presents anonymized, category-level insights.
+            The full report is prepared for a specific brand and includes findings
+            directly relevant to that brand's content mix, audience, and competitive context.
+          </p>
+          <ul>
+            <li>Complete coefficient tables with standard errors and p-values</li>
+            <li>95% confidence intervals on all marginal effects</li>
+            <li>Format-by-format engagement breakdown</li>
+            <li>Month-level fixed effect estimates</li>
+            <li>Prioritized content recommendations tied directly to findings</li>
+            <li>Methodology note suitable for internal presentation</li>
+          </ul>
+        </div>
+
+        <div class="lead-form">
+          <form id="reportForm">
+            <div class="form-group">
+              <label for="fname">Your name</label>
+              <input type="text" id="fname" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="femail">Work email</label>
+              <input type="email" id="femail" name="email" placeholder="jane@yourbrand.com" required>
+            </div>
+            <div class="form-group">
+              <label for="fcompany">Company</label>
+              <input type="text" id="fcompany" name="company" placeholder="Your company" required>
+            </div>
+            <div class="form-group">
+              <label for="frole">Your role</label>
+              <select id="frole" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option>Brand Manager</option>
+                <option>Marketing Director / VP</option>
+                <option>Content Strategist</option>
+                <option>Social Media Manager</option>
+                <option>CMO</option>
+                <option>Agency / Consultant</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">Request the full report &rarr;</button>
+            <p class="form-note">
+              Your information will not be shared. You will receive one email with the
+              report and a brief follow-up from Jimmy Chen Consulting.
+            </p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <strong style="display:block; margin-bottom:8px;">Request received.</strong>
+            You will hear from us within one business day. Thank you for your interest.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Jimmy Chen Consulting. All rights reserved.</p>
+    <p style="margin-top: 8px; font-size: 13px;">
+      Based on independent analysis of publicly available data.
+      Jimmy Chen Consulting is not affiliated with, endorsed by, or sponsored by any brand mentioned herein.
+    </p>
+  </div>
+</footer>
+
+<script>
+  /* Scroll-triggered fade-in for finding cards */
+  document.querySelectorAll('.finding-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 70) + 'ms';
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { el.classList.add('visible'); obs.disconnect(); }
+    }, { threshold: 0.1 });
+    obs.observe(el);
+  });
+
+  /* Form submission handler */
+  document.getElementById('reportForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name    = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const company = document.getElementById('fcompany').value.trim();
+    const role    = document.getElementById('frole').value;
+    if (!name || !email || !company || !role) return;
+
+    /* ─────────────────────────────────────────────────────────────
+       INTEGRATION NOTE:
+       Replace this block with your actual form submission handler.
+       Recommended options:
+         A) Formspree:  fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                          method:'POST',
+                          headers:{'Content-Type':'application/json'},
+                          body: JSON.stringify({name, email, company, role})
+                        })
+         B) EmailJS:    emailjs.send('service_id', 'template_id', {name, email, company, role})
+         C) Netlify:    add  data-netlify="true"  attribute to the <form> tag
+    ───────────────────────────────────────────────────────────── */
+    console.log('Form submission:', { name, email, company, role });
+
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
