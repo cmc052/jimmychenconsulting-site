@@ -649,7 +649,7 @@
   });
 
   /* Form submission handler */
-  document.getElementById('reportForm').addEventListener('submit', function(e) {
+  document.getElementById('reportForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name    = document.getElementById('fname').value.trim();
     const email   = document.getElementById('femail').value.trim();
@@ -657,19 +657,11 @@
     const role    = document.getElementById('frole').value;
     if (!name || !email || !company || !role) return;
 
-    /* ─────────────────────────────────────────────────────────────
-       INTEGRATION NOTE:
-       Replace this block with your actual form submission handler.
-       Recommended options:
-         A) Formspree:  fetch('https://formspree.io/f/YOUR_FORM_ID', {
-                          method:'POST',
-                          headers:{'Content-Type':'application/json'},
-                          body: JSON.stringify({name, email, company, role})
-                        })
-         B) EmailJS:    emailjs.send('service_id', 'template_id', {name, email, company, role})
-         C) Netlify:    add  data-netlify="true"  attribute to the <form> tag
-    ───────────────────────────────────────────────────────────── */
-    console.log('Form submission:', { name, email, company, role });
+await fetch('https://formspree.io/f/mwvjvqjl', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company, role })
+    });
 
     this.style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
